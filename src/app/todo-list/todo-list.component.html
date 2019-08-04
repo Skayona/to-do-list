@@ -1,0 +1,11 @@
+<ul>
+  <li *ngFor="let todo of todoList">
+    <label [for]="todo.id" class="check-label" [class.checked]="todo.status" [attr.aria-label]="todo.status ? 'Select to uncheck' : 'Select to check'"></label>
+    <input [id]="todo.id" type="checkbox" [(ngModel)]="todo.status" />
+    <article [class.completed]="todo.status">
+      <h2><label [for]="todo.id">{{ todo.title }}</label></h2>
+      <p><label [for]="todo.id">{{ todo.text }}</label></p>
+    </article>
+    <button type="button" (click)="deleteTodo(todo.id)" aria-label="Delete todo item">✕</button>
+  </li>
+</ul>

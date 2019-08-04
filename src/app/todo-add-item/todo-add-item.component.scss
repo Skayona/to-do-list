@@ -1,0 +1,41 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  column-gap: 16px;
+}
+
+input {
+  width: 100%;
+  padding: 8px 0;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #e1e1e1;
+  outline: none;
+
+  &.has-error {
+    border-color: #ff3c3c;
+  }
+
+  &.has-error::placeholder {
+    color: #f7bcbc;
+  }
+}
+
+button {
+  padding: 0 8px;
+  font-size: 32px;
+  font-weight: 600;
+  background: transparent;
+  color: #3b88fd;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transform-origin: center;
+  transition: transform 0.1s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
+}
