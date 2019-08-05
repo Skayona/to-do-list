@@ -1,14 +1,3 @@
-<section class="todo-container">
-  <h1> To Do List</h1>
-
-  <app-todo-add-item
-    (addNew)="onAddNew($event)"
-  ></app-todo-add-item>
-
-  <app-todo-list
-    [todoList]="todosArray"
-    (deleteItem)="onDeleteItem($event)"
-  ></app-todo-list>
-</section>
+<app-todo-app></app-todo-app>
 
 <router-outlet></router-outlet>
