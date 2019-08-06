@@ -7,11 +7,17 @@ import { ITodo } from '../models/todo';
   styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent {
+  editMode = false;
+
   @Input() todo: ITodo;
 
   @Output() deleteEvent = new EventEmitter<string>();
 
   deleteTodo(id: string) {
     this.deleteEvent.emit(id);
+  }
+
+  editTodo() {
+    this.editMode = this.todo.status === false;
   }
 }

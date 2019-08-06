@@ -8,6 +8,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoAddItemComponent } from './todo-add-item/todo-add-item.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoAppComponent } from './todo-app/todo-app.component';
+import { TodoEditItemComponent } from './todo-edit-item/todo-edit-item.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TodoAppComponent } from './todo-app/todo-app.component';
     TodoListComponent,
     TodoAddItemComponent,
     TodoItemComponent,
-    TodoAppComponent
+    TodoAppComponent,
+    TodoEditItemComponent
   ],
   imports: [
     BrowserModule,

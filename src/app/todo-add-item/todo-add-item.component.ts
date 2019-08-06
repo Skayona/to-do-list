@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-todo-add-item',
@@ -6,21 +6,21 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./todo-add-item.component.scss']
 })
 export class TodoAddItemComponent {
-  title = '';
-  text = '';
+  @Input() title = '';
+  @Input() text = '';
   error = false;
 
-  @Output() addNew = new EventEmitter<{ title: string, text: string }>();
+  @Output() save = new EventEmitter<{ title: string, text: string }>();
 
 
-  addNewTodo() {
+  onSave() {
     if (!this.title || !this.text) {
       this.error = true;
       return;
     }
 
     this.error = false;
-    this.addNew.emit({
+    this.save.emit({
       title: this.title,
       text: this.text
     });

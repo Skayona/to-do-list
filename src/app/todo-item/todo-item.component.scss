@@ -1,9 +1,17 @@
 :host {
+  display: block;
+}
+
+.todo-item {
   display: grid;
   grid-template-columns: auto 1fr auto;
   column-gap: 16px;
   align-items: center;
   padding: 8px 0;
+}
+
+.todo-edit-item {
+  padding: 16px 0;
 }
 
 input {
@@ -17,6 +25,10 @@ input {
   border: 1px solid #898989;
   border-radius: 3px;
   transition: border-color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+}
+
+.check-label.disabled {
+  opacity: 0.5;
 }
 
 .check-label.checked {
@@ -45,6 +57,12 @@ button {
   &:hover,
   &:focus {
     color: #000;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    color: #898989;
+    cursor: default;
   }
 }
 

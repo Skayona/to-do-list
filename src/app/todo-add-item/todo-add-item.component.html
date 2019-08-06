@@ -4,4 +4,4 @@
 <label for="text">
   <input id="text" [class.has-error]="error && !text" type="text" placeholder="Text" [(ngModel)]="text" />
 </label>
-<button type="button" (click)="addNewTodo()" aria-label="Add new Todo item">+</button>
+<button type="button" (click)="onSave()" aria-label="Add new Todo item">+</button>
