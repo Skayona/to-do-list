@@ -1,14 +1,18 @@
 
 <div class="todo-item">
-  <input [id]="todo.id" type="checkbox" [(ngModel)]="todo.status" [disabled]="editMode" />
-  <label [for]="todo.id" class="check-label" [class.checked]="todo.status" [class.disabled]="editMode" [attr.aria-label]="todo.status ? 'Select to uncheck' : 'Select to check'"></label>
-  <article [class.completed]="todo.status" (dblclick)="editTodo(todo.id)" *ngIf="!editMode">
+  <input [id]="todo.id" type="checkbox" [(ngModel)]="todo.completed" [disabled]="editMode" />
+  <label [for]="todo.id" class="check-label" [class.checked]="todo.completed" [class.disabled]="editMode" [attr.aria-label]="todo.completed ? 'Select to uncheck' : 'Select to check'"></label>
+  <article [class.completed]="todo.completed" (dblclick)="editTodo(todo.id)" *ngIf="!editMode">
     <h2>{{ todo.title }}</h2>
     <p>{{ todo.text }}</p>
   </article>
   <div *ngIf="editMode">
-    <app-todo-edit-item></app-todo-edit-item>
+    <app-todo-edit-item
+      [todo]="todo"
+      (save)="updateEvent($event)"
+      (cancel)="cancelEdit()"
+    ></app-todo-edit-item>
   </div>
-  <button type="button" (click)="deleteTodo(todo.id)" aria-label="Delete todo item" [disabled]="editMode">✕</button>
+  <button type="button" (click)="deleteTodo()" aria-label="Delete todo item" *ngIf="!editMode">✕</button>
 </div>
 

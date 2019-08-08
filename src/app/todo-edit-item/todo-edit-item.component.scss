@@ -1,0 +1,27 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 16px;
+  align-items: center;
+}
+label {
+  display: block;
+}
+
+label + label {
+  margin-top: 8px;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #e1e1e1;
+}
+
+.edit-action button {
+  display: block;
+  width: 100%;
+
+  &+button {
+    margin-top: 8px;
+  }
+}

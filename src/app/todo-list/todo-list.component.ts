@@ -9,9 +9,14 @@ import { ITodo } from '../models/todo';
 export class TodoListComponent {
   @Input() todoList: ITodo[];
 
-  @Output() deleteItem = new EventEmitter<string>();
+  @Output() deleteItem = new EventEmitter<ITodo>();
+  @Output() editItem = new EventEmitter<ITodo>();
 
-  deleteTodo(id: string) {
-    this.deleteItem.emit(id);
+  deleteTodo(todo: ITodo) {
+    this.deleteItem.emit(todo);
+  }
+
+  editTodo(todo: ITodo) {
+    this.editItem.emit(todo);
   }
 }

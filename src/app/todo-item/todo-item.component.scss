@@ -67,6 +67,10 @@ button {
 }
 
 article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 80px;
   color: #333333;
 }
 

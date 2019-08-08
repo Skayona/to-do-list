@@ -4,23 +4,6 @@
   column-gap: 16px;
 }
 
-input {
-  width: 100%;
-  padding: 8px 0;
-  font-size: 16px;
-  border: none;
-  border-bottom: 1px solid #e1e1e1;
-  outline: none;
-
-  &.has-error {
-    border-color: #ff3c3c;
-  }
-
-  &.has-error::placeholder {
-    color: #f7bcbc;
-  }
-}
-
 button {
   padding: 0 8px;
   font-size: 32px;

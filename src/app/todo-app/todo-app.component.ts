@@ -8,34 +8,50 @@ import { TodoService } from '../services/todo.service';
   styleUrls: ['./todo-app.component.scss']
 })
 export class TodoAppComponent implements OnInit {
+  limit = 20;
   todosArray: ITodo[] = [];
 
   constructor(
     private todoService: TodoService
   ) { }
 
-  onAddNew({ title, text }: { title: string, text: string }) {
-    const newItem: ITodo = {
-      id: (new Date()).toISOString(),
-      status: false,
-      text,
-      title
-    };
-    this.todosArray.unshift(newItem);
-  }
 
-  onDeleteItem(id: string) {
-    const index = this.todosArray.findIndex((todo) => todo.id === id);
-    this.todosArray.splice(index, 1);
+  deleteItem(todo: ITodo) {
+    this.todoService.deleteItem(todo.id)
+    .then(() => {
+      const index = this.todosArray.findIndex((td) => td === todo);
+      this.todosArray.splice(index, 1);
+    });
   }
 
   getData() {
-    this.todoService.getData()
+    this.todoService.getList(this.limit)
     .then((todos) => this.todosArray = todos);
+  }
+
+  createItem(todo: ITodo) {
+    this.todoService.createItem(todo)
+      .then((td) => {
+        this.todosArray.unshift(td);
+      });
+  }
+
+  updateItem(todo: ITodo) {
+    this.todoService.updateItem(todo)
+      .then((td) => {
+        this.todosArray = this.todosArray.map((item) => {
+          if (item.id === todo.id) {
+            return td;
+          }
+          return item;
+        });
+      });
   }
 
   ngOnInit(): void {
     this.getData();
+
+    this.todoService.getItem('100').then(console.log);
   }
 
 }

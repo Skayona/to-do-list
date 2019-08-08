@@ -10,7 +10,7 @@ export class TodoAddItemComponent {
   @Input() text = '';
   error = false;
 
-  @Output() save = new EventEmitter<{ title: string, text: string }>();
+  @Output() save = new EventEmitter<{ title: string, text: string, completed: boolean }>();
 
 
   onSave() {
@@ -22,7 +22,8 @@ export class TodoAddItemComponent {
     this.error = false;
     this.save.emit({
       title: this.title,
-      text: this.text
+      text: this.text,
+      completed: false
     });
 
     this.text = '';
